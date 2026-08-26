@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Dalila (test build)",
+  "version": "0.1.0",
+  "description": "Test-only manifest widened to also match localhost, so scripts/test-e2e-extension.js can exercise the real content/background scripts against the bundled bridge server. The real manifest.json stays scoped to the actual Fusion platform domain.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["http://localhost:3001/*"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://stg-orch.abafusion.ai/*", "http://localhost:3001/*"],
+      "js": ["shared.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["widget.css"],
+      "matches": ["https://stg-orch.abafusion.ai/*", "http://localhost:3001/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "options_page": "options.html"
+}

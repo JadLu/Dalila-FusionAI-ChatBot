@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dalila</title>
+  <style>
+    body {
+      width: 260px;
+      margin: 0;
+      padding: 16px;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1f2330;
+    }
+    h1 {
+      font-size: 14px;
+      margin: 0 0 12px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      margin-bottom: 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: #9ca3af;
+    }
+    .dot.ok { background: #4ade80; }
+    .dot.bad { background: #ef4444; }
+    a {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #a80085;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dalila</h1>
+  <div class="row"><span class="dot" id="bridge-dot"></span><span id="bridge-status">Checking bridge...</span></div>
+  <div class="row"><span class="dot" id="page-dot"></span><span id="page-status">Checking this page...</span></div>
+  <a href="#" id="open-options">Settings</a>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

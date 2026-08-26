@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dalila - Settings</title>
+  <style>
+    body {
+      max-width: 480px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+      color: #1f2330;
+    }
+    h1 { font-size: 18px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #a80085, #86006a);
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    #status { margin-top: 10px; font-size: 12.5px; color: #6b7280; }
+    hr { margin: 28px 0; border: none; border-top: 1px solid #e5e7eb; }
+    p.hint { font-size: 12.5px; color: #6b7280; margin: 4px 0 0; }
+    #canvas-status { margin-top: 10px; font-size: 12.5px; }
+  </style>
+</head>
+<body>
+  <h1>Dalila - Settings</h1>
+  <label for="bridge-url">Bridge server URL</label>
+  <input type="text" id="bridge-url" placeholder="http://localhost:3001" />
+  <div>
+    <button id="save">Save</button>
+  </div>
+  <div id="status"></div>
+
+  <hr />
+
+  <h1>Canvas Integration</h1>
+  <p class="hint">Lets the "Send to Canvas" button in chat write a generated workflow directly into the currently-open automation on the Fusion platform. Requires granting the extension access to the platform's site.</p>
+  <div>
+    <button id="enable-canvas">Enable Canvas Integration</button>
+  </div>
+  <div id="canvas-status"></div>
+
+  <script src="shared.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

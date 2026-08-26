@@ -1,0 +1,30 @@
+{
+  "name": "fusion-ai-chat-bridge",
+  "version": "1.0.0",
+  "description": "API bridge and embeddable floating chat widget for a RAG-powered Fusion AI / Kie.ai chatbot, streamed over SSE.",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test:widget": "node scripts/test-e2e-widget.js",
+    "test:extension": "node scripts/test-e2e-extension.js"
+  },
+  "dependencies": {
+    "@pinecone-database/pinecone": "^8.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "fast-xml-parser": "^5.11.0",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^2.7.0",
+    "pdf-parse": "^1.1.4",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

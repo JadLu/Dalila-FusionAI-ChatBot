@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fusion AI Widget - Demo Host Page</title>
+  <style>
+    /*
+      Deliberately "messy" host page styles (resets, conflicting class
+      names, aggressive box-sizing) to prove the widget's Shadow DOM
+      scoping keeps it visually isolated either way.
+    */
+    * { margin: 0; padding: 0; box-sizing: content-box; }
+    body {
+      font-family: Georgia, serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    header {
+      padding: 48px 24px;
+      text-align: center;
+      background: radial-gradient(circle at top, #1e293b, #0f172a);
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 8px; }
+    header p { color: #94a3b8; }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 24px 120px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .card h2 { color: #a5b4fc; margin-bottom: 8px; font-size: 1.1rem; }
+    .card p { color: #cbd5e1; }
+    /* A conflicting class name to prove the widget isn't affected by it */
+    .button { background: crimson; color: white; padding: 20px; font-size: 30px; }
+    code {
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fusion AI - Demo Host Page</h1>
+    <p>This page hosts the embeddable widget to demonstrate a real-world integration.</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>How this works</h2>
+      <p>
+        The floating chat button in the bottom-right corner is injected entirely by
+        <code>widget.js</code>. It renders inside a Shadow DOM, so this page's aggressive
+        <code>.button</code> class and global resets cannot leak into it (and its styles can't
+        leak out either).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Before you test</h2>
+      <p>
+        1. Copy <code>.env.example</code> to <code>.env</code> and fill in
+        <code>FUSION_AI_WEBHOOK_URL</code> / <code>KIE_AI_API_KEY</code>.<br />
+        2. Run <code>npm install</code> then <code>npm start</code>.<br />
+        3. Open this page via <code>http://localhost:3001/index.html</code>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Try it</h2>
+      <p>Click the chat bubble in the bottom-right corner to start a conversation.</p>
+      <button class="button" type="button">I'm an unrelated host-page button</button>
+    </div>
+  </main>
+
+  <!-- Embed the Fusion AI chat widget -->
+  <script src="http://localhost:3001/widget.js" defer></script>
+</body>
+</html>
